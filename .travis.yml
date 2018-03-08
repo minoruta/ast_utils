@@ -8,10 +8,12 @@ addons:
     packages:
       - asterisk
 before_install:
-    - sudo mkdir -p /usr/share/asterisk/sounds/en/
-    - sudo cp test/volume/var/lib/asterisk/sounds/en/*.ulaw /usr/share/asterisk/sounds/en/
-    - sudo cp test/volume/etc/asterisk/* /etc/asterisk/
-    - sudo service asterisk restart
+  - echo +++before_install+++
+  - sudo mkdir -p /usr/share/asterisk/sounds/en/
+  - sudo cp test/volume/var/lib/asterisk/sounds/en/*.ulaw /usr/share/asterisk/sounds/en/
+  - sudo cp test/volume/etc/asterisk/* /etc/asterisk/
+  - sudo service asterisk restart
+  - echo ---before_install---
 install:
   - npm install
 script: npm test
