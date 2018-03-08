@@ -19,7 +19,7 @@ addons:
 before_install:
   - sudo mkdir -p /usr/share/asterisk/sounds/en/
   - sudo cp test/volume/var/lib/asterisk/sounds/en/*.ulaw /usr/share/asterisk/sounds/en/
-  - sudo cp test/volume/etc/asterisk/* /etc/asterisk/
+  - sudo cp -r test/volume/etc/asterisk /etc
 install:
   - wget -nv "http://downloads.asterisk.org/pub/telephony/asterisk/releases/asterisk-$VERSION_ASTERISK.tar.gz" -O - | tar -zxf -
   - cd asterisk-$VERSION_ASTERISK
