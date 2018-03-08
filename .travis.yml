@@ -3,17 +3,30 @@ language: node_js
 node_js:
   - "node"
   - "lts/*"
+env: VERSION_ASTERISK=15.1.3
 addons:
   apt:
     packages:
-      - asterisk
+      - libsasl2-dev
+      - libncurses5-dev
+      - libnewt-dev
+      - libsqlite3-dev
+      - libjansson-dev
+      - pkg-config
+      - build-essential
+      - autoconf
+      - uuid-dev
 before_install:
-  - echo +++before_install+++
   - sudo mkdir -p /usr/share/asterisk/sounds/en/
   - sudo cp test/volume/var/lib/asterisk/sounds/en/*.ulaw /usr/share/asterisk/sounds/en/
   - sudo cp test/volume/etc/asterisk/* /etc/asterisk/
-  - sudo service asterisk restart
-  - echo ---before_install---
 install:
+  - wget -nv "http://downloads.asterisk.org/pub/telephony/asterisk/releases/asterisk-$VERSION_ASTERISK.tar.gz" -O - | tar -zxf -
+  - cd asterisk-$VERSION_ASTERISK
+  - ./configure --disable-xmldoc > /dev/null
+  - make all > /dev/null
+  - sudo make install config
+  - sudo service asterisk start
   - npm install
-script: npm test
+script:
+  - npm test
