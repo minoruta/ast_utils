@@ -1,0 +1,17 @@
+sudo: required
+language: node_js
+node_js:
+  - "node"
+  - "lts/*"
+addons:
+  apt:
+    packages:
+      - asterisk
+before_install:
+    - sudo mkdir -p /usr/share/asterisk/sounds/en/
+    - sudo cp test/volume/var/lib/asterisk/sounds/en/*.ulaw /usr/share/asterisk/sounds/en/
+    - sudo cp test/volume/etc/asterisk/* /etc/asterisk/
+    - sudo service asterisk restart
+install:
+  - npm install
+script: npm test

@@ -1,0 +1,15 @@
+version: '3'
+services:
+  tester:
+    container_name: tester
+    build: .
+    volumes:
+      - ../../:/root/ast_utils/
+      - ../volume/etc/asterisk/cli.conf:/etc/asterisk/cli.conf
+      - ../volume/etc/asterisk/pjsip.conf:/etc/asterisk/pjsip.conf
+      - ../volume/etc/asterisk/modules.conf:/etc/asterisk/modules.conf
+      - ../volume/etc/asterisk/manager.conf:/etc/asterisk/manager.conf
+      - ../volume/etc/asterisk/http.conf:/etc/asterisk/http.conf
+      - ../volume/etc/asterisk/ari.conf:/etc/asterisk/ari.conf
+      - ../volume/etc/asterisk/extensions.conf:/etc/asterisk/extensions.conf
+      - ../volume/var/lib/asterisk/sounds/en:/var/lib/asterisk/sounds/en
