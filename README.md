@@ -2,7 +2,7 @@
 
 The ast_utils is a utility library to test the [ast_mongo](https://github.com/minoruta/ast_mongo).
 
-## [Documents](https://minoruta.github.io/ast_utils)
+## [Documents](https://minoruta.github.io/ast_utils/)
 
 ## Test
 - Prepare an asterisk server with the [test configurations](./test/volume) for example.
