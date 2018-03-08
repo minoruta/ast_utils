@@ -7,16 +7,15 @@ The ast_utils is a utility library to test the [ast_mongo](https://github.com/mi
 ## Test
 - Prepare an asterisk server with the [test configurations](./test/volume) for example.
 - `npm test`
-- Or, see [`./test/docker/README.md`](test/docker/README.md)
+
+## Develop
+- see [Development with docker](./test/docker)
 
 ## Build
 - `npm run build`
 
 ## Make docs
 - `npm run docs`
-
-## Develop
-- see [Development with docker](./test/docker)
 
 ## References
 - [BelirafoN/asterisk-ami-client](https://github.com/BelirafoN/asterisk-ami-client)
