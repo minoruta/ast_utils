@@ -13,6 +13,7 @@
   "types": "./dist/src/AstUtils.d.ts",
   "scripts": {
     "build": "npm run build-ts && npm run tslint",
+    "postinstall": "postinstall-build dist",
     "test": "jest --forceExit",
     "build-ts": "tsc",
     "tslint": "tslint -c tslint.json -p tsconfig.json",
@@ -24,7 +25,8 @@
   "dependencies": {
     "ari-client": "^1.1.1",
     "asterisk-ami-client": "minoruta/asterisk-ami-client#multiple-outputs",
-    "debug": "^3.1.0"
+    "debug": "^3.1.0",
+    "postinstall-build": "^5.0.1"
   },
   "devDependencies": {
     "@types/debug": "0.0.30",
